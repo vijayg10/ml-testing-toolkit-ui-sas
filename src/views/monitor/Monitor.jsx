@@ -19,6 +19,7 @@ import React from "react";
 import socketIOClient from "socket.io-client";
 import { Grid, GridColumn as Column, GridDetailRow } from '@progress/kendo-react-grid';
 import '@progress/kendo-theme-default/dist/all.css'
+import getConfig from '../../utils/getConfig'
 
 // reactstrap components
 import {
@@ -188,8 +189,7 @@ export class IncomingMonitor extends React.Component {
     logs: [],
     incomingItemsObj: {},
     incomingItemsArr: [],
-    lastIncomingTime: null,
-    endpoint: "http://127.0.0.1:5050",
+    lastIncomingTime: null
   }
 
   socket = null
@@ -204,8 +204,8 @@ export class IncomingMonitor extends React.Component {
   }
 
   componentDidMount() {
-    const { endpoint } = this.state;
-    this.socket = socketIOClient(endpoint);
+    const { apiBaseUrl } = getConfig()
+    this.socket = socketIOClient(apiBaseUrl);
     this.socket.on("newLog", newLog => {
       // console.log('New log received', newLog)
       this.state.logs.push(newLog)
