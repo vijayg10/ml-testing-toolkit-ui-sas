@@ -53,7 +53,7 @@
     "chart.js": "2.7.3",
     "classnames": "2.2.6",
     "json-schema-faker": "^0.5.0-rc23",
-    "jsoneditor": "^8.0.0",
+    "jsoneditor": "^9.5.6",
     "jsoneditor-react": "^2.0.0",
     "lodash": "^4.17.15",
     "moment": "2.24.0",
